@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cases',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -130,6 +132,21 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "criminality", "static"),
     # '/var/www/criminality/static',
 ]
+
+# DRF settings
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.UserRateThrottle',
+        'rest_framework.throttling.AnonRateThrottle',
+    ),
+    'DEFAULT_THROTTLE_RATES': {
+        'user': '60/minute',
+        'anon': '30/minute',
+    },
+}
 
 try:
     from .local_settings import *
