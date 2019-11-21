@@ -1,4 +1,76 @@
-{% load staticfiles %}<!doctype html>
-<title>Criminality</title>
-<div id="app"></div>
-<script src="{% static 'app.js' %}"></script>
+{% load staticfiles %} <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Criminality</title>
+        <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+        <style>
+            .none {
+              display: none;
+            }
+
+            body {
+              // background: rgba(0, 102, 255, 0.38);
+              font-family: sans-serif;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div id="app"></div>
+
+        <script type="text/babel">
+
+            function DisplayMap(props) {
+                const casesTemplate = props.data.map(function(item, index) {
+                  return (
+                    <div key={item.registry_number}>
+                      <p className="case__address">{item.address}</p>
+                      <p className="case__case_number">{item.case_number}</p>
+                      <p className="case__url">{item.url}</p>
+                    </div>
+                  )
+                })
+                return <div className="cases">
+                            {casesTemplate}
+                       </div>
+            }
+
+            class App extends React.Component {
+
+                state = {
+                    isLoading: false,
+                    cases: null,
+                }
+                componentDidMount() {
+                  this.setState({ isLoading: true })
+                  fetch('http://localhost:8000/api/v0/')
+                    .then(response => {
+                      return response.json()
+                    })
+                    .then(data => {
+                      this.setState({ isLoading: false, cases: data })
+                    })
+                }
+
+                render() {
+                    const { cases, isLoading } = this.state
+                    return <div>
+                        {isLoading && <p>Загрузка данных...</p>}
+                        {Array.isArray(cases) && <DisplayMap data={cases} />}
+
+                    </div>
+                }
+            }
+
+            ReactDOM.render(<App/>, document.getElementById('app'))
+        </script>
+
+        <!-- <script src="{% static 'app.js' %}"></script> -->
+    </body>
+</html>
