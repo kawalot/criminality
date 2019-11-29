@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 
-import '../styles/App.css';
+import '../styles/App.scss';
 
 import DisplayMap from './DisplayMap'
-
+import Info from './Info'
+import Header from './Header'
+import Footer from './Footer'
 
 class App extends Component {
     constructor() {
@@ -27,9 +29,12 @@ class App extends Component {
 
     render() {
         const { cases, isLoading } = this.state
-        return <div>
+        return <div className="container">
+            <Header />
             {isLoading && <p>Загрузка данных...</p>}
             {Array.isArray(cases) && <DisplayMap data={cases} />}
+            <Info />
+            <Footer />
         </div>
     }
 }

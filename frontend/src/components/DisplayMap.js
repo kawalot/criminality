@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 
-function DisplayMap(props) {
+const DisplayMap = (props) => {
     const casesTemplate = props.data.map(function(item, index) {
       return (
         <div key={item.registry_number}>
@@ -11,9 +11,9 @@ function DisplayMap(props) {
         </div>
       )
     })
-    return <div className="cases">
+    return <main id="pageMain">
                 {casesTemplate}
-           </div>
+           </main>
 }
 
 export default DisplayMap;
