@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "../styles/Main.scss"
 
 const DisplayMap = (props) => {
     const casesTemplate = props.data.map(function(item, index) {
@@ -11,8 +11,9 @@ const DisplayMap = (props) => {
         </div>
       )
     })
+
     return <main id="pageMain">
-                {casesTemplate}
+             {casesTemplate}
            </main>
 }
 
