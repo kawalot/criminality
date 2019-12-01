@@ -8,30 +8,42 @@ import Header from './Header'
 import Footer from './Footer'
 
 class App extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            isLoading: false,
+            error: null,
+            isLoaded: false,
             cases: null,
         }
     }
 
     componentDidMount() {
-      this.setState({ isLoading: true })
-      fetch('http://localhost:8000/api/v0/')
-        .then(response => {
-          return response.json()
-        })
-        .then(data => {
-          this.setState({ isLoading: false, cases: data })
-        })
+      fetch("http://localhost:8000/api/v0/")
+        .then(res => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              isLoaded: true,
+              cases: result
+            });
+          },
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        )
     }
 
+    
+
     render() {
-        const { cases, isLoading } = this.state
+        const { error, cases, isLoaded } = this.state
         return <div className="container">
             <Header />
-            {isLoading && <p>Загрузка данных...</p>}
+            {error && <p>Ошибка: {error.message}</p>}
+            {!isLoaded && <p>Загрузка данных...</p>}
             {Array.isArray(cases) && <DisplayMap data={cases} />}
             <Info />
             <Footer />
