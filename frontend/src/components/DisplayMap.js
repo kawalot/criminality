@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "../styles/Main.scss"
 
 const DisplayMap = (props) => {
+
     const casesTemplate = props.data.map(function(item, index) {
       return (
         <div key={item.registry_number}>
@@ -12,9 +12,7 @@ const DisplayMap = (props) => {
       )
     })
 
-    return <main id="pageMain">
-             {casesTemplate}
-           </main>
+    return <div>{casesTemplate}</div>
 }
 
 export default DisplayMap;
