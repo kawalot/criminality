@@ -43,21 +43,23 @@ class App extends Component {
     render() {
         const { error, cases, isLoaded } = this.state
         return <div className="container">
-            <Header />
-            <main id="pageMain">
-                {error && <p>Ошибка: {error.message}</p>}
-                {!isLoaded && <p>Загрузка данных...</p>}
-                <Switch>
-                    {Array.isArray(cases) && <Route exact path='/'
-                        render={() => <DisplayMap data={cases} />}
-                    />}
-                    <Route path='/about' component={About} />
-                    <Route path="*" component={Notfound} />
-                </Switch>
-            </main>
-            <Info />
-            <Footer />
-        </div>
+                    <Header />
+                    <main id="pageMain">
+                        {error && <p className='error'>Ошибка: {error.message}</p>}
+                        {!isLoaded && <p>Загрузка данных...</p>}
+                        <Switch>
+                            <Route exact path='/' component={Main} />
+                            {Array.isArray(cases) && <Route exact path='/map'
+                                render={() => <DisplayMap data={cases} />}
+                            />}
+                            <Route path='/about' component={About} />
+                            <Route path='*' component={Notfound} />
+                        </Switch>
+                    </main>
+                    <Info />
+                    <Footer />
+                </div>
+
     }
 }
 

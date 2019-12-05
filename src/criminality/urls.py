@@ -21,8 +21,8 @@ from .views import IndexView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('cases.api.urls')),
-    # re_path(r'^.*$', IndexView.as_view(), name='home_page'),
-    path('', IndexView.as_view(), name='home_page'),
+    re_path(r'^.*$', IndexView.as_view(), name='home_page'),
+    # path('', IndexView.as_view(), name='home_page'),
 ]
 
 # if settings.DEBUG:

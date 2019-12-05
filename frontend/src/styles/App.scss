@@ -21,6 +21,11 @@ body {
 
 }
 
+.error {
+    color: red;
+    font-weight: bold;
+}
+
 @media all and (max-width: 575px) {
   .container {
     grid-template-areas:
@@ -34,8 +39,6 @@ body {
 }
 
 footer, main, section {
-  
+
   background: grey;
 }
-
-

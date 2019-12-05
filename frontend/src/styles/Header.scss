@@ -2,12 +2,13 @@
     grid-area: header;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     background: #4e584f;
     min-height: 50px;
     flex-wrap: wrap;
+    padding: 0 50px;
     &-logo {
-        justify-self: end;
+
     }
     &-nav__link {
         margin-left: 30px;
