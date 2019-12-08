@@ -1,8 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 
 
 const About = () => {
-    return <div className="about">about map</div>
+    return <div className="about">
+                <p>Some info about site</p>
+           </div>
 }
 
 export default About;

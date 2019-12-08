@@ -16,7 +16,6 @@ let DefaultIcon = L.icon({
     iconAnchor: [12,36]
 });
 
-
 const DisplayMap = (props) => {
 
     L.Marker.prototype.options.icon = DefaultIcon;
@@ -26,20 +25,17 @@ const DisplayMap = (props) => {
         const url = item.url
 
       return (
-            <Marker key={index} position={position}>
-                <Popup>
-                    A pretty CSS3 popup. <br /> {url}
-                </Popup>
-            </Marker>
+        <Marker key={index} position={position} onClick={() => props.getInfo({url})}>
+            <Popup>
+                A pretty CSS3 popup. <br /> {url}
+            </Popup>
+        </Marker>
       )
     })
 
-
-
-
     return (
 
-      <Map center={position} zoom={zoom} style={{ height: "400px", width: '90%' }}>
+      <Map center={position} zoom={zoom} minZoom={10} maxZoom={18} style={{ height: "400px", width: '90%' }}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

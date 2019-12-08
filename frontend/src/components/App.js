@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Route, NavLink, BrowserRouter as Router, Switch} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 
 import '../styles/App.scss';
 
@@ -9,6 +9,7 @@ import Info from './Info'
 import Header from './Header'
 import Footer from './Footer'
 import About from './About'
+import Login from './Login'
 import Notfound from './Notfound'
 
 class App extends Component {
@@ -18,9 +19,14 @@ class App extends Component {
             error: null,
             isLoaded: false,
             cases: null,
+            infoData: null
         }
     }
 
+    getInfo = (info) => { 
+      this.setState({ infoData: info.url }) 
+    }
+    
     componentDidMount() {
       fetch("http://localhost:8000/api/v0/")
         .then(res => res.json())
@@ -38,10 +44,12 @@ class App extends Component {
             });
           }
         )
+      
     }
-
+    
     render() {
         const { error, cases, isLoaded } = this.state
+      
         return <div className="container">
                     <Header />
                     <main id="pageMain">
@@ -50,13 +58,14 @@ class App extends Component {
                         <Switch>
                             <Route exact path='/' component={Main} />
                             {Array.isArray(cases) && <Route exact path='/map'
-                                render={() => <DisplayMap data={cases} />}
+                              render={() => <DisplayMap data={cases} getInfo={this.getInfo} />}
                             />}
                             <Route path='/about' component={About} />
+                            <Route path='/login' component={Login} />
                             <Route path='*' component={Notfound} />
                         </Switch>
                     </main>
-                    <Info />
+                    <Info data={this.state.infoData} />
                     <Footer />
                 </div>
 

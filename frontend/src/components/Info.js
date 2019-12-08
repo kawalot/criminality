@@ -1,8 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import '../styles/Info.scss'
 
-const Info = () => {
-    return <section id="mainInfo">Info</section>
+
+const Info = (props) => {
+    return <section id="mainInfo">
+                <p>Info:</p>
+                <p>{props.data}</p>
+            </section>
 }
 
 export default Info;
