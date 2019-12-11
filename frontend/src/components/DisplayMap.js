@@ -21,11 +21,24 @@ const DisplayMap = (props) => {
     L.Marker.prototype.options.icon = DefaultIcon;
 
     const markerList = props.data.map(function(item, index) {
-        const position = item.get_coordinates
-        const url = item.url
+
+      const { 
+        registry_number, 
+        case_number, 
+        url, 
+        address, 
+        case_city,
+        case_date, 
+        icon,
+        court,
+        category,
+        color,
+        judge,
+        get_coordinates,
+        comment } = item
 
       return (
-        <Marker key={index} position={position} onClick={() => props.getInfo({url})}>
+        <Marker key={registry_number} position={get_coordinates} onClick={() => props.getInfo({item})}>
             <Popup>
                 A pretty CSS3 popup. <br /> {url}
             </Popup>

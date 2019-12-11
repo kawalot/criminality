@@ -24,7 +24,11 @@ class App extends Component {
     }
 
     getInfo = (info) => { 
-      this.setState({ infoData: info.url }) 
+      this.setState({ infoData: info }) 
+    }
+
+    setInfoNull = () => {
+      this.setState({ infoData: null })
     }
     
     componentDidMount() {
@@ -56,7 +60,7 @@ class App extends Component {
                         {error && <p className='error'>Ошибка: {error.message}</p>}
                         {!isLoaded && <p>Загрузка данных...</p>}
                         <Switch>
-                            <Route exact path='/' component={Main} />
+                            <Route exact path='/' component={Main} setInfoNull={this.setInfoNull} />
                             {Array.isArray(cases) && <Route exact path='/map'
                               render={() => <DisplayMap data={cases} getInfo={this.getInfo} />}
                             />}
