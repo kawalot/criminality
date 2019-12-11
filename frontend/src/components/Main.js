@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "../styles/Main.scss"
 
 
 const Main = (props) => {
+    
+    useEffect(() => {
+        props.setInfoNull()
+    }, []);
 
     return <article>
                 <h1>Main page</h1>

@@ -55,22 +55,22 @@ class App extends Component {
         const { error, cases, isLoaded } = this.state
       
         return <div className="container">
-                    <Header />
-                    <main id="pageMain">
-                        {error && <p className='error'>Ошибка: {error.message}</p>}
-                        {!isLoaded && <p>Загрузка данных...</p>}
-                        <Switch>
-                            <Route exact path='/' component={Main} setInfoNull={this.setInfoNull} />
-                            {Array.isArray(cases) && <Route exact path='/map'
-                              render={() => <DisplayMap data={cases} getInfo={this.getInfo} />}
-                            />}
-                            <Route path='/about' component={About} />
-                            <Route path='/login' component={Login} />
-                            <Route path='*' component={Notfound} />
-                        </Switch>
-                    </main>
-                    <Info data={this.state.infoData} />
-                    <Footer />
+                <Header />
+                <main id="pageMain">
+                    {error && <p className='error'>Ошибка: {error.message}</p>}
+                    {!isLoaded && <p>Загрузка данных...</p>}
+                    <Switch>
+                      <Route exact path='/' render={() => <Main setInfoNull={this.setInfoNull} />}/>
+                      {Array.isArray(cases) && <Route exact path='/map'
+                        render={() => <DisplayMap data={cases} getInfo={this.getInfo} />}
+                      />}
+                      <Route path='/about' render={() => <About setInfoNull={this.setInfoNull} />}/>
+                      <Route path='/login' render={() => <Login setInfoNull={this.setInfoNull} />} />
+                      <Route path='*' render={() => <Notfound setInfoNull={this.setInfoNull} />} />
+                    </Switch>
+                </main>
+                <Info data={this.state.infoData} />
+                <Footer />
                 </div>
 
     }
