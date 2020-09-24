@@ -2,11 +2,10 @@ import React from "react";
 import { NavLink } from 'react-router-dom'
 import '../styles/Header.scss'
 
-
 const Header = () => {
     return <header className="header">
 
-            <div className="header-logo">Criminality map</div>
+            <img src="static/logo-long-light.png" alt="Criminality logo"></img>
             <nav className="header-nav">
                 <NavLink to='/' exact activeClassName="active" className="header-nav__link">Home</NavLink>
                 <NavLink to='/map' className="header-nav__link">Map</NavLink>

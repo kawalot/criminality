@@ -11,6 +11,10 @@ body {
   margin: 0;
 }
 
+p {
+  margin: 0;
+}
+
 .container {
   display: grid;
   grid-template-areas:
@@ -37,8 +41,9 @@ body {
       "main"
       "section"
       "footer";
-    grid-template-rows: 50px 1fr 10% 30px;
+    grid-template-rows: 50px 4fr 1fr 0.2fr;
     grid-template-columns: 1fr;
+    grid-gap: 0;
   }
 }
 

@@ -7,9 +7,9 @@ const About = (props) => {
         props.setInfoNull()
     }, []);
 
-    return <div className="about">
-                <p>Some info about site</p>
-           </div>
+    return <section className="main">
+                <p>Some info about site.</p>
+           </section>
 }
 
 export default About;

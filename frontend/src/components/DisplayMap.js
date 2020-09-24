@@ -7,7 +7,7 @@ import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 
 const position = [46.431306, 30.715389]
-const zoom = 14
+const zoom = 10
 
 let DefaultIcon = L.icon({
     iconUrl: icon,
@@ -48,7 +48,7 @@ const DisplayMap = (props) => {
 
     return (
 
-      <Map center={position} zoom={zoom} minZoom={10} maxZoom={18} style={{ height: "400px", width: '90%' }}>
+      <Map center={position} zoom={zoom} minZoom={10} maxZoom={18} style={{ height: "100%", width: '100%' }}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

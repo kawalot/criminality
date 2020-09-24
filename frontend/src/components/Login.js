@@ -7,9 +7,9 @@ const Login = (props) => {
         props.setInfoNull()
     }, []);
 
-    return <article>
+    return <section className="main">
                 <h2>Login form</h2>
-            </article>
+            </section>
 }
 
 export default Login;

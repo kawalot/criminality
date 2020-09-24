@@ -57,7 +57,7 @@ class App extends Component {
         return <div className="container">
                 <Header />
                 <main id="pageMain">
-                    {error && <p className='error'>Ошибка: {error.message}</p>}
+                    {error && <p className='error'>API error: {error.message}</p>}
                     {!isLoaded && <p>Загрузка данных...</p>}
                     <Switch>
                       <Route exact path='/' render={() => <Main setInfoNull={this.setInfoNull} />}/>

@@ -8,8 +8,8 @@ const Main = (props) => {
         props.setInfoNull()
     }, []);
 
-    return <article>
-                <h1>Main page</h1>
+    return <section className="main">
+                <h1>Criminality map</h1>
                 
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -19,7 +19,7 @@ const Main = (props) => {
                     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                     culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-           </article>
+           </section>
     
 }
 export default Main;

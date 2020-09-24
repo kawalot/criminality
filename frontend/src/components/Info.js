@@ -5,8 +5,10 @@ import '../styles/Info.scss'
 const Info = (props) => {
 
     return <section id="mainInfo">
-                <p>Info:</p>
-                {props.data && <p>{props.data.item.url}</p>}
+                
+                {props.data && <p><a href={props.data.item.url}>№ решения {props.data.item.registry_number}</a></p>}
+                {props.data && <p>{props.data.item.address}</p>}
+                {props.data && <p>{props.data.item.comment}</p>}
             </section>
 }
 
