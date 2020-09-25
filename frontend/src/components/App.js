@@ -64,7 +64,7 @@ class App extends Component {
                       {Array.isArray(cases) && <Route exact path='/map'
                         render={() => <DisplayMap data={cases} getInfo={this.getInfo} />}
                       />}
-                      <Route path='/about' render={() => <About setInfoNull={this.setInfoNull} />}/>
+                      
                       <Route path='/login' render={() => <Login setInfoNull={this.setInfoNull} />} />
                       <Route path='*' render={() => <Notfound setInfoNull={this.setInfoNull} />} />
                     </Switch>
