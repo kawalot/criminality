@@ -36,7 +36,7 @@ const DisplayMap = (props) => {
       return (
         <Marker key={registry_number} position={get_coordinates} onClick={() => props.getInfo({item})}>
             <Popup>
-                A pretty CSS3 popup. <br /> {url}
+                A pretty CSS3 popup. <br /> <a href="'{url}'">{url}</a>
             </Popup>
         </Marker>
       )

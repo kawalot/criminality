@@ -23,7 +23,7 @@ class Case(models.Model):
     comment = models.TextField(blank=True)
 
     def __str__(self):
-        return str("Case no.: ", self.registry_number)
+        return "Case no. " + str(self.registry_number)
 
     def get_coordinates(self):
         return [float(self.latitude), float(self.longitude)]
