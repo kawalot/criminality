@@ -19,10 +19,10 @@ p {
   display: grid;
   grid-template-areas:
     "header header header"
-    "section main main"
+    "main main main"
     "footer footer footer";
   grid-template-rows: 50px 1fr 50px;
-  grid-template-columns: 20% 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 
   grid-gap: 10px;
   height: 100vh;
@@ -39,9 +39,8 @@ p {
     grid-template-areas:
       "header"
       "main"
-      "section"
       "footer";
-    grid-template-rows: 50px 4fr 1fr 0.2fr;
+    grid-template-rows: 50px 5fr 0.2fr;
     grid-template-columns: 1fr;
     grid-gap: 0;
   }

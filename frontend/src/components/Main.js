@@ -4,10 +4,6 @@ import "../styles/Main.scss"
 
 const Main = (props) => {
     
-    useEffect(() => {
-        props.setInfoNull()
-    }, []);
-
     return <section className="main">
                 <h1>Criminality map</h1>
                 

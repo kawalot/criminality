@@ -6,8 +6,8 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 
-const position = [46.431306, 30.715389]
-const zoom = 10
+const POSITION = [46.431306, 30.715389]
+const ZOOM = 11
 
 let DefaultIcon = L.icon({
     iconUrl: icon,
@@ -24,18 +24,14 @@ const DisplayMap = (props) => {
 
       const { 
         registry_number, 
-        case_number, 
         url, 
         address, 
-        case_city,
         case_date, 
         icon,
-        court,
-        category,
         color,
-        judge,
         get_coordinates,
-        comment } = item
+        comment 
+      } = item
 
       return (
         <Marker key={registry_number} position={get_coordinates} onClick={() => props.getInfo({item})}>
@@ -48,7 +44,7 @@ const DisplayMap = (props) => {
 
     return (
 
-      <Map center={position} zoom={zoom} minZoom={10} maxZoom={18} style={{ height: "100%", width: '100%' }}>
+      <Map center={POSITION} zoom={ZOOM} minZoom={10} maxZoom={18} style={{ height: "100%", width: '100%' }}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
